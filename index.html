@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Phone System for Florida Plumbers — Never Miss a Job Again</title>
+<meta name="description" content="24/7 phone dispatcher for Florida plumbing companies. Never miss an emergency call again. 100% money-back guarantee."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1B4F8A;
+  --blue-dark:#163E6E;
+  --blue-light:#EBF2FB;
+  --red:#D93B1E;
+  --red-light:#FEF0EC;
+  --red-border:#F5B8A8;
+  --white:#FFFFFF;
+  --offwhite:#F7F7F5;
+  --ink:#1A1A1A;
+  --text:#3D4452;
+  --muted:#6B7380;
+  --border:#DCDBD8;
+  --green:#166534;
+  --green-bg:#F0FDF4;
+  --green-border:#86EFAC;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.65;background:var(--white);color:var(--ink);overflow-x:hidden;padding-bottom:72px}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--blue-dark);padding:.65rem 1.25rem;text-align:center}
+.topbar p{font-size:.84rem;font-weight:600;color:#fff}
+.topbar a{color:#93C5FD;font-weight:700;text-decoration:none}
+
+/* ── NAV ── */
+nav{
+  background:var(--white);
+  border-bottom:3px solid var(--blue);
+  padding:.85rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+.nav-brand{display:flex;align-items:center;gap:.65rem}
+.nav-logo{
+  background:var(--blue);
+  width:40px;height:40px;border-radius:8px;
+  display:grid;place-items:center;
+  font-size:1.2rem;flex-shrink:0;
+}
+.nav-name{font-size:1.05rem;font-weight:800;color:var(--ink);line-height:1.15;letter-spacing:-.02em}
+.nav-name small{display:block;font-size:.55rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:1px}
+.nav-cta{
+  background:var(--red);color:#fff;
+  font-weight:700;font-size:.85rem;
+  padding:.6rem 1.2rem;border-radius:6px;
+  text-decoration:none;white-space:nowrap;
+}
+
+/* ── HERO ── */
+.hero{
+  background:var(--blue);
+  padding:3rem 1.25rem 4.5rem;
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
+  background:linear-gradient(transparent,var(--offwhite));
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1}
+
+.hero-label{
+  display:inline-block;
+  background:rgba(255,255,255,.15);
+  color:#fff;font-size:.72rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:.32rem .85rem;border-radius:4px;
+  margin-bottom:1.2rem;border:1px solid rgba(255,255,255,.25);
+}
+
+.hero h1{
+  font-size:clamp(2.5rem,9vw,4.2rem);
+  font-weight:800;color:#fff;
+  line-height:1.0;letter-spacing:-.03em;
+  margin-bottom:1.2rem;
+}
+.hero h1 .red{color:#FCA5A5}
+.hero h1 .sub{
+  display:block;
+  font-size:clamp(1.1rem,4vw,1.6rem);
+  font-weight:500;
+  color:rgba(255,255,255,.55);
+  letter-spacing:-.01em;
+  margin-top:.4rem;
+}
+
+.hero-sub{
+  font-size:1.05rem;color:rgba(255,255,255,.75);
+  line-height:1.78;margin-bottom:1.75rem;max-width:440px;
+}
+.hero-sub strong{color:#fff;font-weight:700}
+
+/* guarantee */
+.hero-guar{
+  display:flex;align-items:flex-start;gap:.75rem;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:8px;padding:.95rem 1.1rem;
+  margin-bottom:1.15rem;
+}
+.hg-ico{font-size:1.15rem;flex-shrink:0;line-height:1.4}
+.hg-txt{font-size:.9rem;color:rgba(255,255,255,.85);line-height:1.55}
+.hg-txt strong{color:#fff;font-weight:700}
+
+/* voice callout */
+.hero-voice{
+  display:flex;align-items:flex-start;gap:.75rem;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:8px;padding:.95rem 1.1rem;
+  margin-bottom:1.15rem;
+}
+.hv-ico{font-size:1.15rem;flex-shrink:0;line-height:1.4}
+.hv-txt{font-size:.9rem;color:rgba(255,255,255,.82);line-height:1.55}
+.hv-txt strong{color:#fff;font-weight:700;display:block;margin-bottom:.15rem}
+
+/* loss */
+.hero-loss{
+  display:flex;align-items:flex-start;gap:.75rem;
+  background:rgba(0,0,0,.2);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:8px;padding:.95rem 1.1rem;
+  margin-bottom:1.75rem;
+}
+.hl-ico{font-size:1.15rem;flex-shrink:0;line-height:1.4}
+.hl-num{font-size:1.45rem;font-weight:800;color:#FCA5A5;letter-spacing:-.02em;line-height:1}
+.hl-desc{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.55;margin-top:.18rem}
+
+/* demo box */
+.demo-box{
+  background:var(--white);
+  border-radius:10px;
+  padding:1.5rem 1.35rem;
+  margin-bottom:1.75rem;
+}
+.demo-label{
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--blue);
+  margin-bottom:.6rem;display:flex;align-items:center;gap:.4rem;
+}
+.live-dot{width:7px;height:7px;background:#22C55E;border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.demo-num{font-size:2.4rem;font-weight:800;color:var(--ink);letter-spacing:.01em;line-height:1;margin-bottom:.4rem}
+.demo-hint{font-size:.9rem;color:var(--muted);line-height:1.65;margin-bottom:1.15rem}
+.btn-red{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  background:var(--red);color:#fff;
+  font-weight:700;font-size:1.05rem;
+  padding:1.1rem 1.5rem;border-radius:8px;
+  text-decoration:none;width:100%;
+  box-shadow:0 4px 16px rgba(217,59,30,.35);
+}
+.demo-fine{font-size:.72rem;color:var(--muted);text-align:center;margin-top:.5rem}
+.demo-voice{
+  font-size:.75rem;color:var(--muted);
+  text-align:center;margin-top:.5rem;
+  padding:.5rem .75rem;
+  background:var(--offwhite);
+  border-radius:6px;border:1px solid var(--border);
+  line-height:1.55;
+}
+
+/* proof pills */
+.pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.pill{
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:5px;padding:.3rem .75rem;
+  font-size:.72rem;color:rgba(255,255,255,.75);font-weight:500;
+}
+.pill strong{color:#fff;font-weight:700}
+
+/* ── TRUST STRIP ── */
+.trust{
+  background:var(--blue-dark);
+  padding:.85rem 1.25rem;
+  display:flex;align-items:center;gap:1.25rem;
+  overflow-x:auto;scrollbar-width:none;
+}
+.trust::-webkit-scrollbar{display:none}
+.ti{display:flex;align-items:center;gap:.4rem;white-space:nowrap;flex-shrink:0}
+.ti-lbl{font-size:.68rem;font-weight:700;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.07em}
+.tdiv{width:1px;height:16px;background:rgba(255,255,255,.2);flex-shrink:0}
+
+/* ── SECTIONS ── */
+.sec{padding:3.75rem 1.25rem}
+.sw{background:var(--white)}
+.sg{background:var(--offwhite)}
+.sb{background:var(--blue)}
+
+.s-tag{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.55rem;display:block}
+.sb .s-tag{color:#93C5FD}
+h2{font-size:clamp(1.85rem,5.5vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:.6rem}
+.sw h2,.sg h2{color:var(--ink)}
+.sb h2{color:#fff}
+.s-sub{font-size:1rem;line-height:1.72;margin-bottom:2rem}
+.sw .s-sub,.sg .s-sub{color:var(--muted)}
+.sb .s-sub{color:rgba(255,255,255,.65)}
+
+/* ── PAIN ── */
+.pain-grid{display:flex;flex-direction:column;gap:.7rem}
+.pain-card{
+  background:var(--white);border-radius:10px;padding:1.3rem;
+  border:1px solid var(--border);
+  border-left:4px solid var(--red);
+  box-shadow:0 1px 5px rgba(0,0,0,.05);
+}
+.p-head{display:flex;align-items:flex-start;gap:.65rem;margin-bottom:.5rem}
+.p-ico{font-size:1.25rem;flex-shrink:0;margin-top:.04rem}
+.p-title{font-weight:800;font-size:.97rem;color:var(--ink);line-height:1.3;letter-spacing:-.015em}
+.p-body{font-size:.92rem;color:var(--muted);line-height:1.7}
+.p-cost{
+  display:inline-block;margin-top:.6rem;
+  background:var(--red-light);border:1px solid var(--red-border);
+  color:var(--red);font-size:.73rem;font-weight:700;
+  letter-spacing:.03em;padding:.22rem .6rem;border-radius:5px;
+}
+
+/* ── VS ── */
+.vs-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:.5rem;align-items:start}
+.vs-bad{background:var(--white);border:2px solid var(--red-border);border-radius:10px;padding:1.25rem}
+.vs-good{background:var(--blue);border:2px solid var(--blue);border-radius:10px;padding:1.25rem}
+.vs-label{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem}
+.vs-bad .vs-label{color:var(--red)}
+.vs-good .vs-label{color:#93C5FD}
+.vs-row{font-size:.83rem;line-height:1.5;margin-bottom:.42rem;display:flex;align-items:flex-start;gap:.28rem}
+.vs-bad .vs-row{color:var(--muted)}
+.vs-good .vs-row{color:rgba(255,255,255,.85)}
+.vs-mid{font-size:1rem;font-weight:800;color:var(--muted);text-align:center;padding-top:.5rem}
+
+/* ── PHONE CONVO ── */
+.phone-wrap{
+  background:#fff;
+  border:2px solid var(--border);
+  border-radius:12px;overflow:hidden;
+  max-width:400px;margin:0 auto;
+  box-shadow:0 4px 20px rgba(0,0,0,.1);
+}
+.phone-bar{
+  background:var(--blue-dark);
+  padding:.8rem 1.1rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.ph-name{font-size:.82rem;font-weight:700;color:#fff}
+.ph-time{font-size:.62rem;color:rgba(255,255,255,.55)}
+.ph-badge{
+  background:#22C55E;color:#fff;
+  font-size:.6rem;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;
+  padding:.2rem .5rem;border-radius:4px;
+}
+.msgs{padding:1.1rem;display:flex;flex-direction:column;gap:.6rem;background:#F9F9F9}
+.msg{display:flex;flex-direction:column;max-width:90%}
+.msg.ai{align-items:flex-end;align-self:flex-end}
+.msg.cu{align-items:flex-start}
+.msg-name{font-size:.58rem;color:var(--muted);padding:0 .3rem;margin-bottom:.1rem}
+.bubble{padding:.75rem .95rem;border-radius:12px;font-size:.87rem;line-height:1.55}
+.ai .bubble{background:var(--blue);color:#fff;font-weight:600;border-bottom-right-radius:3px}
+.cu .bubble{background:#fff;color:var(--ink);border:1px solid var(--border);border-bottom-left-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.phone-foot{
+  background:#E8F5E9;border-top:1px solid #C8E6C9;
+  padding:.7rem 1.1rem;display:flex;align-items:center;gap:.5rem;
+}
+.foot-dot{width:7px;height:7px;background:#22C55E;border-radius:50%;animation:blink 1.2s infinite;flex-shrink:0}
+.foot-txt{font-size:.72rem;color:#166534;font-weight:600}
+.convo-cap{text-align:center;font-size:.82rem;color:var(--muted);margin-top:1rem;font-style:italic}
+
+/* ── FLOW ── */
+.flow-list{display:flex;flex-direction:column;gap:.6rem}
+.flow-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;
+  box-shadow:0 1px 5px rgba(0,0,0,.05);
+}
+.flow-card.hot{background:var(--red-light);border-color:var(--red-border)}
+.flow-top{display:flex;align-items:flex-start;gap:.9rem;padding:1.25rem}
+.flow-num{
+  font-size:2.4rem;font-weight:800;
+  color:rgba(27,79,138,.18);line-height:1;
+  flex-shrink:0;width:2.4rem;letter-spacing:-.02em;
+}
+.flow-card.hot .flow-num{color:rgba(217,59,30,.2)}
+.flow-ico{font-size:1.1rem;flex-shrink:0;margin-top:.3rem}
+.flow-right{flex:1}
+.flow-title{font-weight:800;font-size:.97rem;color:var(--ink);letter-spacing:-.02em;margin-bottom:.25rem;line-height:1.35}
+.flow-desc{font-size:.9rem;color:var(--muted);line-height:1.68}
+.flow-chips{display:flex;flex-wrap:wrap;gap:.35rem;padding:.65rem 1.25rem .9rem 4.55rem}
+.fchip{
+  background:var(--blue-light);border:1px solid #BFDBFE;
+  color:var(--blue);font-size:.67rem;font-weight:700;
+  letter-spacing:.03em;padding:.2rem .55rem;border-radius:5px;
+}
+.fchip.g{background:var(--green-bg);border-color:var(--green-border);color:var(--green)}
+.fchip.r{background:var(--red-light);border-color:var(--red-border);color:var(--red)}
+
+/* ── ROI ── */
+.roi-table{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;
+  margin-bottom:1rem;
+  box-shadow:0 1px 5px rgba(0,0,0,.05);
+}
+.roi-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.9rem 1.25rem;border-bottom:1px solid var(--border);
+}
+.roi-row:last-child{border-bottom:none}
+.roi-l{font-size:.9rem;color:var(--muted)}
+.roi-v{font-size:1.1rem;font-weight:800;color:var(--ink);letter-spacing:-.015em}
+.roi-v.neg{color:var(--red)}
+.roi-v.pos{color:var(--green)}
+.roi-highlight{
+  background:var(--blue);
+  border-radius:10px;padding:2rem 1.5rem;text-align:center;
+}
+.roi-big{font-size:3.2rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1}
+.roi-big-sub{font-size:.9rem;color:rgba(255,255,255,.65);margin-top:.5rem;line-height:1.6}
+.roi-note{font-size:.74rem;color:var(--muted);text-align:center;margin-top:.8rem;font-style:italic}
+
+/* ── OBJECTIONS ── */
+.obj-list{display:flex;flex-direction:column;gap:.6rem}
+.obj-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:10px;padding:1.25rem 1.35rem;
+  box-shadow:0 1px 4px rgba(0,0,0,.05);
+}
+.obj-q{
+  display:flex;align-items:flex-start;gap:.4rem;
+  font-weight:800;font-size:.97rem;color:var(--ink);
+  letter-spacing:-.015em;margin-bottom:.45rem;line-height:1.35;
+}
+.obj-mark{color:var(--blue);font-size:1.5rem;line-height:.9;flex-shrink:0;font-style:italic}
+.obj-a{font-size:.92rem;color:var(--muted);line-height:1.72}
+
+/* ── PRICING ── */
+.price-card{
+  background:var(--white);border-radius:12px;overflow:hidden;
+  border:2px solid var(--blue);
+  box-shadow:0 8px 32px rgba(0,0,0,.1);
+}
+.price-head{background:var(--blue);padding:1.75rem 1.5rem}
+.price-badge{
+  display:inline-block;background:#fff;color:var(--blue);
+  font-size:.67rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:.28rem .75rem;border-radius:4px;margin-bottom:.9rem;
+}
+.price-title{font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-.025em;margin-bottom:.3rem}
+.price-tag{font-size:.9rem;color:rgba(255,255,255,.6)}
+.price-body{padding:1.6rem 1.5rem}
+.price-amount{text-align:center;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:2px solid var(--border)}
+.price-num{font-size:3.5rem;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1}
+.price-num sup{font-size:1.4rem;vertical-align:top;margin-top:.4rem;font-weight:700}
+.price-num sub{font-size:.9rem;font-weight:500;color:var(--muted);letter-spacing:0}
+.price-mo{font-size:.95rem;color:var(--muted);margin-top:.4rem}
+.price-mo strong{color:var(--ink);font-weight:700}
+.incl-label{
+  font-size:.7rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;
+}
+.pitem{
+  display:flex;align-items:flex-start;gap:.5rem;
+  font-size:.95rem;color:var(--ink);margin-bottom:.6rem;line-height:1.45;
+}
+.pitem::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:.08rem;font-size:1rem}
+.price-cta{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  background:var(--red);color:#fff;
+  font-weight:700;font-size:1.08rem;
+  padding:1.15rem;border-radius:8px;
+  text-decoration:none;width:100%;margin-top:1.35rem;
+  box-shadow:0 4px 14px rgba(217,59,30,.35);
+}
+.guar-box{
+  background:var(--green-bg);border:1.5px solid var(--green-border);
+  border-radius:10px;padding:1.25rem;margin-top:1.1rem;
+}
+.guar-box-head{display:flex;align-items:center;gap:.55rem;margin-bottom:.45rem}
+.guar-ico{font-size:1.2rem}
+.guar-title{font-weight:800;font-size:.97rem;color:#14532D}
+.guar-body{font-size:.9rem;color:#166534;line-height:1.65}
+
+/* ── FINAL CTA ── */
+.final-cta{
+  background:var(--blue);
+  border-radius:12px;padding:2.5rem 1.5rem;
+  text-align:center;
+}
+.final-ring{
+  width:72px;height:72px;background:#fff;
+  border-radius:50%;display:grid;place-items:center;
+  font-size:1.7rem;margin:0 auto 1.3rem;
+  box-shadow:0 0 0 10px rgba(255,255,255,.15);
+}
+.final-phone{font-size:2.4rem;font-weight:800;color:#fff;letter-spacing:.01em;margin-bottom:.25rem}
+.final-sub{font-size:.72rem;color:rgba(255,255,255,.55);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.final-body{font-size:.97rem;color:rgba(255,255,255,.75);line-height:1.76;margin-bottom:1.5rem;max-width:360px;margin-left:auto;margin-right:auto}
+
+/* ── FOOTER ── */
+footer{background:var(--blue-dark);padding:2rem 1.25rem;text-align:center}
+.foot-brand{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.25rem}
+.foot-sub{font-size:.68rem;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.9rem}
+.foot-link{color:rgba(255,255,255,.55);font-size:.82rem;text-decoration:none}
+.foot-copy{font-size:.62rem;color:rgba(255,255,255,.25);margin-top:.7rem}
+
+/* ── STICKY ── */
+.sticky{
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:var(--ink);
+  border-top:3px solid var(--red);
+  padding:.65rem 1.1rem;display:flex;gap:.55rem;
+}
+.s-call{
+  flex:1;background:var(--red);color:#fff;
+  font-weight:700;font-size:.9rem;border-radius:7px;
+  padding:.82rem .5rem;text-decoration:none;
+  display:flex;align-items:center;justify-content:center;gap:.35rem;
+}
+.s-price{
+  flex:.7;background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);
+  font-weight:600;font-size:.85rem;border-radius:7px;
+  border:1px solid rgba(255,255,255,.2);
+  padding:.82rem .5rem;text-decoration:none;
+  display:flex;align-items:center;justify-content:center;gap:.3rem;
+}
+
+.contact-grid{display:flex;flex-direction:column;gap:.75rem}
+.contact-card{display:block;text-decoration:none;background:var(--white);border:2px solid var(--border);border-radius:10px;padding:1.35rem;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:border-color .15s}
+.contact-card:hover{border-color:var(--blue)}
+.contact-icon{font-size:1.75rem;margin-bottom:.5rem}
+.contact-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.contact-value{font-size:1.1rem;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:.25rem}
+.contact-sub{font-size:.82rem;color:var(--muted)}
+@media(min-width:540px){.contact-grid{flex-direction:row}}
+.talk-section{background:var(--blue);border-radius:12px;padding:2.25rem 1.5rem;text-align:center}
+.talk-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.5rem;display:block}
+.talk-h{font-size:1.75rem;font-weight:800;color:#fff;letter-spacing:-.025em;line-height:1.15;margin-bottom:.5rem}
+.talk-sub{font-size:.95rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:1.75rem;max-width:340px;margin-left:auto;margin-right:auto}
+.talk-name{display:flex;align-items:center;justify-content:center;gap:.65rem;margin-bottom:1.5rem}
+.talk-avatar{width:52px;height:52px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);border-radius:50%;display:grid;place-items:center;font-size:1.4rem;flex-shrink:0}
+.talk-name-text{text-align:left}
+.talk-name-main{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-.01em}
+.talk-name-role{font-size:.75rem;color:rgba(255,255,255,.55)}
+.talk-btns{display:flex;flex-direction:column;gap:.65rem;max-width:340px;margin:0 auto}
+.talk-call{display:flex;align-items:center;justify-content:center;gap:.55rem;background:#fff;color:var(--blue);font-weight:800;font-size:1.1rem;padding:1.1rem 1.5rem;border-radius:8px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.2);letter-spacing:-.01em}
+.talk-text{display:flex;align-items:center;justify-content:center;gap:.55rem;background:rgba(255,255,255,.15);color:#fff;font-weight:700;font-size:1rem;padding:1rem 1.5rem;border-radius:8px;text-decoration:none;border:2px solid rgba(255,255,255,.3)}
+.talk-email{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:.85rem;text-decoration:none;display:block}
+.talk-email:hover{color:rgba(255,255,255,.8)}
+.talk-note{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:.65rem;line-height:1.5}
+.link-blue{color:#93C5FD;font-weight:700;font-size:.9rem;text-decoration:none}
+.w100{width:100%}
+.center{text-align:center}
+.mt{margin-top:.85rem}
+@media(min-width:600px){.pain-grid{display:grid;grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <p>🎙️ Hear it live right now — Call <a href="tel:+17867417750">(786) 741-7750</a> &nbsp;·&nbsp; Available 24 hours a day</p>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">📞</div>
+    <div class="nav-name">Florida Plumbing Tech<small>For Plumbing Companies</small></div>
+  </div>
+  <a href="tel:+17867417750" class="nav-cta">📞 Call Demo</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-label">Built for Florida Plumbers</div>
+
+    <h1>
+      Stop Losing Jobs<br/>
+      to <span class="red">Missed Calls.</span>
+      <span class="sub">We built the fix. Done for you.</span>
+    </h1>
+
+    <p class="hero-sub">
+      We set up a <strong>24/7 phone dispatcher</strong> for your plumbing business. It answers every call, handles emergencies, books appointments, and texts your crew — automatically, around the clock.
+      <br/><br/>
+      <strong>You just show up and do the work.</strong>
+    </p>
+
+    <div class="hero-guar">
+      <div class="hg-ico">🛡️</div>
+      <div class="hg-txt"><strong>Zero risk. Seriously.</strong> We set everything up for you. If you do not like it for any reason within the first 30 days — we send you a full $997 refund. No questions. No paperwork. No awkward conversations. You either love it or you pay nothing.</div>
+    </div>
+
+    <div class="hero-voice">
+      <div class="hv-ico">🎙️</div>
+      <div class="hv-txt">
+        <strong>Not the robotic voice that makes you want to hang up.</strong>
+        The demo you are about to call uses a clone of my own voice. When we build yours, we create a custom voice clone of you — or whoever you want representing your phones. Your customers will think they are talking to you personally, every single time.
+      </div>
+    </div>
+
+    <div class="hero-loss">
+      <div class="hl-ico">📉</div>
+      <div>
+        <div class="hl-num">$46,800 lost per year</div>
+        <div class="hl-desc">Average revenue a Florida plumber loses missing just 5 calls a week. Every unanswered call goes straight to your competitor.</div>
+      </div>
+    </div>
+
+    <div class="demo-box">
+      <div class="demo-label"><div class="live-dot"></div>Call the live demo right now — free, 2 minutes</div>
+      <div class="demo-num">(786) 741-7750</div>
+      <div class="demo-hint">Picks up in under 3 rings. Try it in Spanish. Ask about pricing. Report a fake emergency. Hear exactly what your customers will experience before you spend a dollar.</div>
+      <a href="tel:+17867417750" class="btn-red">📞 Call the Live Demo Now</a>
+      <div class="demo-fine">No sales pitch. No pressure. Just the system, live.</div>
+      <div class="demo-voice">🎙️ The voice on this demo is a clone of my own voice. When we set yours up, we clone your voice — or anyone you choose — so your customers always feel like they are talking directly to you.</div>
+    </div>
+
+    <div class="pills">
+      <div class="pill"><strong>24/7</strong> — Never misses a call</div>
+      <div class="pill"><strong>English &amp; Spanish</strong></div>
+      <div class="pill">Live in <strong>3 days</strong></div>
+      <div class="pill">🛡️ <strong>Zero risk</strong> — 30-day refund</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="ti"><span>🛡️</span><div class="ti-lbl">100% Guarantee</div></div>
+  <div class="tdiv"></div>
+  <div class="ti"><span>🌙</span><div class="ti-lbl">24/7 · 365 Days</div></div>
+  <div class="tdiv"></div>
+  <div class="ti"><span>🇪🇸</span><div class="ti-lbl">English &amp; Spanish</div></div>
+  <div class="tdiv"></div>
+  <div class="ti"><span>⚡</span><div class="ti-lbl">Emergency Dispatch</div></div>
+  <div class="tdiv"></div>
+  <div class="ti"><span>📅</span><div class="ti-lbl">Auto Booking</div></div>
+  <div class="tdiv"></div>
+  <div class="ti"><span>⚙️</span><div class="ti-lbl">Done For You</div></div>
+</div>
+
+<!-- PAIN -->
+<section class="sec sg">
+  <span class="s-tag" style="color:var(--red)">The Problem</span>
+  <h2>Money You're Losing Every Week</h2>
+  <p class="s-sub">Every one of these is happening to Florida plumbers right now — probably including you.</p>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="p-head"><div class="p-ico">📵</div><div class="p-title">Calls going to voicemail after hours</div></div>
+      <div class="p-body">70% of plumbing emergencies happen nights and weekends. When your phone goes to voicemail, the customer immediately calls the next plumber on Google. You never even know you lost them.</div>
+      <div class="p-cost">$300–$800 gone per missed call</div>
+    </div>
+    <div class="pain-card">
+      <div class="p-head"><div class="p-ico">🌊</div><div class="p-title">Emergency chaos — no real dispatch system</div></div>
+      <div class="p-body">Burst pipe at 2am. You blast WhatsApp. Nobody responds for 10 minutes. Customer gives up and calls someone else. Your highest-margin jobs are the first ones you lose.</div>
+      <div class="p-cost">Emergency jobs = your best margin, most lost</div>
+    </div>
+    <div class="pain-card">
+      <div class="p-head"><div class="p-ico">🇪🇸</div><div class="p-title">Losing every Spanish-speaking caller</div></div>
+      <div class="p-body">Florida has millions of Spanish-speaking residents. Miami, Orlando, Tampa, Jacksonville — if you can't handle Spanish confidently, that customer hangs up and calls someone who can.</div>
+      <div class="p-cost">Half your market, completely unreached</div>
+    </div>
+    <div class="pain-card">
+      <div class="p-head"><div class="p-ico">📅</div><div class="p-title">Booking jobs by text and memory</div></div>
+      <div class="p-body">Jobs booked with no confirmation sent, no calendar entry, no reminder. Customer forgets. Plumber shows up to an empty house. Time wasted — nobody gets paid.</div>
+      <div class="p-cost">1 no-show per week = $15,000+ lost per year</div>
+    </div>
+    <div class="pain-card">
+      <div class="p-head"><div class="p-ico">👩</div><div class="p-title">Your family answering phones all day</div></div>
+      <div class="p-body">Answering calls, playing phone tag, texting crews, missing follow-ups — someone in your life spends 2–3 hours every day doing work a machine should handle for free.</div>
+      <div class="p-cost">Their time is worth far more than this</div>
+    </div>
+    <div class="pain-card">
+      <div class="p-head"><div class="p-ico">🔁</div><div class="p-title">Zero follow-up on leads that didn't book</div></div>
+      <div class="p-body">Someone called, got a price, said "let me think about it." You never followed up. They hired your competitor. That was a $400 drain job you didn't even fight for.</div>
+      <div class="p-cost">60% convert with just one follow-up text</div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="sec sw">
+  <span class="s-tag">See the Difference</span>
+  <h2>Before vs. After</h2>
+  <p class="s-sub">What changes the day your phone system goes live.</p>
+  <div class="vs-grid">
+    <div class="vs-bad">
+      <div class="vs-label">❌ Without Us</div>
+      <div class="vs-row">📵 Voicemail after 5pm</div>
+      <div class="vs-row">🤷 Emergency jobs lost to rivals</div>
+      <div class="vs-row">🔇 Spanish callers hang up</div>
+      <div class="vs-row">📋 Jobs booked by memory</div>
+      <div class="vs-row">😬 No confirmations sent</div>
+      <div class="vs-row">💸 Leads disappear forever</div>
+    </div>
+    <div class="vs-mid">VS</div>
+    <div class="vs-good">
+      <div class="vs-label">✅ With Us</div>
+      <div class="vs-row">📞 Every call answered, always</div>
+      <div class="vs-row">🚨 Emergency crew blasted instantly</div>
+      <div class="vs-row">🇪🇸 Fluent English &amp; Spanish</div>
+      <div class="vs-row">📅 Booked to calendar on the call</div>
+      <div class="vs-row">📱 Instant text + day-before reminder</div>
+      <div class="vs-row">🔁 Auto follow-up recovers leads</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE CONVO -->
+<section class="sec sg">
+  <span class="s-tag">Hear It in Action</span>
+  <h2>This Is What Your Customers Hear</h2>
+  <p class="s-sub">A real conversation with your phone dispatcher — 2:47 in the morning. No human. No voicemail. No lost job.</p>
+
+  <div class="phone-wrap">
+    <div class="phone-bar">
+      <div><div class="ph-name">Incoming Call · Florida Customer</div><div class="ph-time">Your Plumbing Line · 2:47 AM</div></div>
+      <div class="ph-badge">LIVE</div>
+    </div>
+    <div class="msgs">
+      <div class="msg ai"><div class="msg-name">Your Dispatcher</div><div class="bubble">Thank you for calling Rodriguez Plumbing, this is Miguel — who am I speaking with?</div></div>
+      <div class="msg cu"><div class="msg-name">Customer · 2:47 AM</div><div class="bubble">Hi, it's Carlos. I have water coming through my ceiling — it's really bad.</div></div>
+      <div class="msg ai"><div class="bubble">Okay Carlos, treating this as an emergency right now. Are you and your family safe?</div></div>
+      <div class="msg cu"><div class="bubble">Yes we're safe, but it's getting worse fast.</div></div>
+      <div class="msg ai"><div class="bubble">Good. Find your water shut-off valve and turn it off — stops the damage while I get a plumber to you. What's your full address with zip code?</div></div>
+      <div class="msg cu"><div class="bubble">8421 SW 24th Street, Miami, 33155.</div></div>
+      <div class="msg ai"><div class="bubble">Got it — alerting your on-call plumbers right now. Someone will call you back within 10 minutes. Emergency jobs run $200 to $500. Keep your phone close, Carlos. 🚨</div></div>
+    </div>
+    <div class="phone-foot"><div class="foot-dot"></div><div class="foot-txt">Emergency SMS sent to full crew · 42 seconds after call started</div></div>
+  </div>
+
+  <p class="convo-cap">This happened automatically. No human answered. No voicemail. No lost job.</p>
+  <p class="center mt"><a href="tel:+17867417750" class="link-blue" style="color:var(--blue);font-weight:700;font-size:.9rem;text-decoration:none">📞 Call (786) 741-7750 and try it yourself right now →</a></p>
+</section>
+
+<!-- FLOW -->
+<section class="sec sw">
+  <span class="s-tag">Exactly How It Works</span>
+  <h2>What Happens on Every Call</h2>
+  <p class="s-sub">The system runs itself from start to finish. Nothing for you to do at any step.</p>
+  <div class="flow-list">
+
+    <div class="flow-card">
+      <div class="flow-top">
+        <div class="flow-num">1</div>
+        <div class="flow-ico">📞</div>
+        <div class="flow-right">
+          <div class="flow-title">Answers Every Call in Under 3 Rings — Day or Night</div>
+          <div class="flow-desc">2am on Christmas, it answers. Customer speaks Spanish? It switches automatically. No hold music, no voicemail. Every caller gets a live, professional response, 365 days a year.</div>
+        </div>
+      </div>
+      <div class="flow-chips">
+        <div class="fchip">🌙 24/7/365</div>
+        <div class="fchip">🇪🇸 Auto English/Spanish</div>
+        <div class="fchip g">✓ Zero voicemails ever</div>
+      </div>
+    </div>
+
+    <div class="flow-card">
+      <div class="flow-top">
+        <div class="flow-num">2</div>
+        <div class="flow-ico">🔍</div>
+        <div class="flow-right">
+          <div class="flow-title">Asks the Right Questions — Captures Every Detail</div>
+          <div class="flow-desc">Figures out what's wrong, how urgent, gives a price range, and gets the customer's name, phone number, and address. Nothing falls through the cracks.</div>
+        </div>
+      </div>
+      <div class="flow-chips">
+        <div class="fchip">📋 Full lead captured</div>
+        <div class="fchip">💬 Price ranges given</div>
+        <div class="fchip g">✓ No details missed</div>
+      </div>
+    </div>
+
+    <div class="flow-card hot">
+      <div class="flow-top">
+        <div class="flow-num">3A</div>
+        <div class="flow-ico">🚨</div>
+        <div class="flow-right">
+          <div class="flow-title">Emergency? Your Whole Crew Gets Texted at Once</div>
+          <div class="flow-desc">Burst pipe detected. Every plumber on your team gets an SMS simultaneously: "🚨 EMERGENCY — Carlos at 123 Main St. Reply YES to claim." First YES gets the job — locked automatically. Everyone else notified it's taken. Customer gets a text that a plumber is on the way.</div>
+        </div>
+      </div>
+      <div class="flow-chips">
+        <div class="fchip r">⚡ Under 60 seconds</div>
+        <div class="fchip r">🔒 First YES wins</div>
+        <div class="fchip g">✓ No more lost emergency jobs</div>
+      </div>
+    </div>
+
+    <div class="flow-card">
+      <div class="flow-top">
+        <div class="flow-num">3B</div>
+        <div class="flow-ico">📅</div>
+        <div class="flow-right">
+          <div class="flow-title">Regular Job? Appointment Booked Right on the Call</div>
+          <div class="flow-desc">It checks your real calendar and locks in the appointment while the customer is still on the phone. They hang up with a confirmed time. No phone tag. No "I'll call you back."</div>
+        </div>
+      </div>
+      <div class="flow-chips">
+        <div class="fchip">📆 Google Calendar sync</div>
+        <div class="fchip">🚫 No double bookings</div>
+        <div class="fchip g">✓ Confirmed on the spot</div>
+      </div>
+    </div>
+
+    <div class="flow-card">
+      <div class="flow-top">
+        <div class="flow-num">4</div>
+        <div class="flow-ico">📱</div>
+        <div class="flow-right">
+          <div class="flow-title">Confirmation Texts to Customer and Your Plumber</div>
+          <div class="flow-desc">Job booked → customer gets a text instantly with full details. Assigned plumber gets the job info. A reminder goes out the day before. Nobody forgets. Nobody no-shows.</div>
+        </div>
+      </div>
+      <div class="flow-chips">
+        <div class="fchip">✉️ Both sides notified instantly</div>
+        <div class="fchip">🔔 Day-before reminder</div>
+        <div class="fchip g">✓ No-shows drop dramatically</div>
+      </div>
+    </div>
+
+    <div class="flow-card">
+      <div class="flow-top">
+        <div class="flow-num">5</div>
+        <div class="flow-ico">🔁</div>
+        <div class="flow-right">
+          <div class="flow-title">Didn't Book? Gets a Follow-Up Text Automatically</div>
+          <div class="flow-desc">Called, got a price, said "let me think about it." Two hours later they get a text. Then again next morning. 60% of those leads convert with a simple follow-up. Your competitors are not doing this.</div>
+        </div>
+      </div>
+      <div class="flow-chips">
+        <div class="fchip">⏰ Auto text in 2 hours</div>
+        <div class="fchip">📊 60% convert with follow-up</div>
+        <div class="fchip g">✓ Jobs you'd have left behind</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="sec sb">
+  <span class="s-tag">The Numbers</span>
+  <h2>Does This Pay For Itself?</h2>
+  <p class="s-sub">Run the math on a typical Florida plumbing company. These are conservative numbers.</p>
+  <div class="roi-table">
+    <div class="roi-row"><div class="roi-l">Missed calls per week (conservative)</div><div class="roi-v neg">5 calls</div></div>
+    <div class="roi-row"><div class="roi-l">Average job value in Florida</div><div class="roi-v">$350</div></div>
+    <div class="roi-row"><div class="roi-l">Revenue lost per month</div><div class="roi-v neg">−$7,000</div></div>
+    <div class="roi-row"><div class="roi-l">Cost of our system per month</div><div class="roi-v">$597/mo</div></div>
+    <div class="roi-row"><div class="roi-l">Net recovered per month</div><div class="roi-v pos">+$6,403</div></div>
+  </div>
+  <div class="roi-highlight">
+    <div class="roi-big">$76,800+</div>
+    <div class="roi-big-sub">Extra revenue per year from capturing just 5 missed calls a week.<br/>Emergency jobs average $400–$800. Most plumbers miss far more than 5.</div>
+  </div>
+  <div class="roi-note">One emergency job usually covers the full monthly cost. It's not even close.</div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="sec sg">
+  <span class="s-tag">Straight Answers</span>
+  <h2>Questions We Hear Every Time</h2>
+  <p class="s-sub">No fluff. Just honest answers to what plumbers actually ask.</p>
+  <div class="obj-list">
+    <div class="obj-card">
+      <div class="obj-q"><span class="obj-mark">"</span>Will it sound professional enough for my customers?</div>
+      <div class="obj-a">Call (786) 741-7750 right now and judge for yourself. It handles emergencies, pricing questions, Spanish callers, and difficult situations confidently. The live demo is your proof. We don't need you to take our word for anything.</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q"><span class="obj-mark">"</span>What if it gives a customer the wrong price?</div>
+      <div class="obj-a">It only gives price ranges — never exact quotes. It always says "our technician confirms the final price when he arrives." Every call is recorded so you can listen back to anything. We train it specifically on your jobs, your area, and your pricing before day one.</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q"><span class="obj-mark">"</span>I'm not a tech person. Can I actually use this?</div>
+      <div class="obj-a">You don't touch anything technical — ever. We build the entire system and hand it to you ready to go in 3 business days. The only thing you do is reply YES when an emergency job gets texted to you, and show up. That's it. We handle everything else permanently.</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q"><span class="obj-mark">"</span>$997 is real money. What if it doesn't work for me?</div>
+      <div class="obj-a">Simple: we build the whole system, get it live, and you try it for 30 days. If you are not completely happy for any reason — the voice, the bookings, anything at all — we send your full $997 back. No questions, no conditions, no fight. Call the demo right now before you spend a dollar. You are taking zero risk either way.</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q"><span class="obj-mark">"</span>What if I want to cancel later?</div>
+      <div class="obj-a">Cancel anytime with 30 days notice. No long-term contracts. No cancellation fees. No penalty. We keep your business because the system works and you see the return every month — not because you're locked in.</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q"><span class="obj-mark">"</span>I have multiple plumbers on my crew — does this work?</div>
+      <div class="obj-a">That's exactly what it's built for. The emergency text blast goes to your whole team at once. First to reply YES claims the job — no confusion, no double dispatch. We set it up around your specific crew during setup at no extra cost.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec sw" id="pricing">
+  <span class="s-tag">Simple Pricing</span>
+  <h2>One Price. Everything Included.</h2>
+  <p class="s-sub">No hidden fees. No long contracts. No technical setup on your end — we do it all.</p>
+
+  <div class="price-card">
+    <div class="price-head">
+      <div class="price-badge">⭐ Full Phone System</div>
+      <div class="price-title">Done-For-You Phone Dispatcher</div>
+      <div class="price-tag">Everything you need to never miss a call — or a job — again</div>
+    </div>
+    <div class="price-body">
+      <div class="price-amount">
+        <div class="price-num"><sup>$</sup>997<sub> one-time setup</sub></div>
+        <div class="price-mo">then <strong>$597/month</strong> — cancel anytime with 30 days notice</div>
+      </div>
+      <div class="incl-label">What's included:</div>
+      <div class="pitem">24/7 phone dispatcher — confident, natural conversation in English &amp; Spanish</div>
+      <div class="pitem">Handles everything: emergencies, bookings, pricing questions, difficult callers</div>
+      <div class="pitem">Emergency SMS blast to your whole crew — first YES wins, auto-confirmed</div>
+      <div class="pitem">Real-time appointment booking synced to your Google Calendar</div>
+      <div class="pitem">Instant confirmation texts to the customer and the assigned plumber</div>
+      <div class="pitem">Day-before reminders — no-show rate drops dramatically</div>
+      <div class="pitem">Automatic follow-up texts for leads that didn't book on the first call</div>
+      <div class="pitem">Dedicated Florida phone number for your business</div>
+      <div class="pitem">Every call recorded so you can listen back to anything</div>
+      <div class="pitem">Custom voice and name built around your specific company</div>
+      <div class="pitem">Complete done-for-you setup — live and running in 3 business days</div>
+      <div class="pitem">Ongoing support and updates — included forever</div>
+      <a href="tel:+17867417750" class="price-cta">📞 Call to Get Started — (786) 741-7750</a>
+      <div class="guar-box">
+        <div class="guar-box-head"><div class="guar-ico">🛡️</div><div class="guar-title">100% Money-Back Guarantee — Zero Risk to You</div></div>
+        <div class="guar-body">Here is how it works: we build your entire phone system and get it live within 3 days. You use it. If for any reason you are not completely happy within the first 30 days, just let us know and we send your full $997 back — 100%, no questions asked, no conditions, no runaround. We take on all the risk so you do not have to.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="sec sg">
+  <div class="final-cta">
+    <div class="final-ring">📞</div>
+    <h2 style="color:#fff;margin-bottom:.5rem">The Easiest Next Step</h2>
+    <p class="final-body">Call the number and hear it yourself. Ask about pricing. Report a fake emergency. Try it in Spanish. Hear exactly what your customers will experience — before you spend a single dollar.</p>
+    <div class="final-phone">(786) 741-7750</div>
+    <div class="final-sub">Live Demo · Available Right Now · English &amp; Spanish</div>
+    <a href="tel:+17867417750" class="btn-red w100" style="max-width:340px;margin:0 auto;display:flex">📞 Call the Live Demo Now</a>
+    <p style="margin-top:.9rem;font-size:.75rem;color:rgba(255,255,255,.45)">Or text "DEMO" to (786) 741-7750 for more information</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec sg" id="contact">
+  <span class="s-tag">Talk to a Real Person</span>
+  <h2>Questions? Let's Talk.</h2>
+  <p class="s-sub">Every system is built by Devin personally. No salespeople, no call centers. Reach out directly and get a straight answer.</p>
+
+  <div class="talk-section">
+    <div class="talk-name">
+      <div class="talk-avatar">👤</div>
+      <div class="talk-name-text">
+        <div class="talk-name-main">Devin — Founder</div>
+        <div class="talk-name-role">Builds every system personally</div>
+      </div>
+    </div>
+
+    <div class="talk-btns">
+      <a href="tel:+19089022389" class="talk-call">
+        📞 Call — (908) 902-2389
+      </a>
+      <a href="sms:+19089022389" class="talk-text">
+        💬 Send a Text Instead
+      </a>
+    </div>
+
+    <a href="mailto:devin@floridaplumbingtech.com" class="talk-email">
+      Or email: devin@floridaplumbingtech.com
+    </a>
+
+    <p class="talk-note">Real person. Fast reply. No pressure — just a straight conversation about whether this makes sense for your business.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand">Florida Plumbing Tech</div>
+  <div class="foot-sub">Phone Systems for Florida Plumbers</div>
+  <a href="tel:+17867417750" class="foot-link">(786) 741-7750</a>
+  <div class="foot-copy">© 2025 Florida Plumbing Tech. All rights reserved.</div>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky">
+  <a href="tel:+17867417750" class="s-call">📞 Call Demo</a>
+  <a href="#pricing" class="s-price">💰 Pricing</a>
+  <a href="#contact" class="s-price">✉️ Contact</a>
+</div>
+
+</body>
+</html>
